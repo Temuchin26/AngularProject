@@ -15,7 +15,7 @@ export const MONEY =[
         date: 1508898822280,
         sum: 670,
         currency: "$",
-        comment: "Ломанул чужую кредитку"
+        comment: "Получил зарплату"
     }
 
 ];
