@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-9 col-md-offset-2">
+      <h2 class="goback"><a routerLink="/post">Go back</a></h2>
+      <h1 *ngIf="load">LOADING...</h1>
+      <div *ngIf="!load" class="user-data">
+          <div *ngFor="let coment of coments" class="cont">
+            <div class="cont__box">
+              <h1 class="cont__title">{{coment.name}}</h1>
+              <h3>User: {{coment.email}}</h3>
+              <p>{{coment.body}}</p>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

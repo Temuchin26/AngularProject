@@ -1,0 +1,58 @@
+
+<div class="conclus ">
+<div class="conclus__cont">
+    <h1 class="conclus__title">Заработано : {{calcsum}} $</h1>
+    <h1 class="conclus__title">Потраченно : {{calcspend}} $</h1>
+  </div>
+<h1 class="conclus__title">Итог : {{res}} $</h1>
+
+<h1 class="conclus__abuse" *ngIf="abuse === 1"> Ищи деньги лошок </h1>
+<h1 class="conclus__abuse" *ngIf="res !== res"> Ошибка получения данных из массива </h1>
+
+<button (click)="Active(state)" class="conclus__btn">Открыть все записи</button>
+<div *ngIf = "state === true">
+  <div class="conclus__tablecont">
+  <h1 class="conclus__title">Заработано</h1>
+  <table class="table table-bordered">
+    <thead class="tableVal">
+      <tr>
+        <th class="tableVal">Сумма</th>
+        <th class="tableVal">Валюта</th>
+        <th class="tableVal">Коментарий</th>
+        <th class="tableVal">Время</th>
+      </tr>
+    </thead>
+    <tbody class="tableVal">
+        <tr *ngFor="let money of moneygain; let i = index;" >
+          <td>{{money.sum}}</td>
+          <td>{{money.currency}}</td>
+          <td>{{money.comment}}</td>
+          <td>{{money.date | date:'HH:mm  dd.MM.y'}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+<div class="conclus__tablecont">
+  <h1 class="conclus__title">Потраченно</h1>
+  <table class="table table-bordered">
+    <thead class="tableVal">
+      <tr>
+        <th class="tableVal">Сумма</th>
+        <th class="tableVal">Валюта</th>
+        <th class="tableVal">Коментарий</th>
+        <th class="tableVal">Время</th>
+      </tr>
+    </thead>
+    <tbody class="tableVal">
+        <tr *ngFor="let money of moneyspend; let i = index;" >
+          <td>{{money.sum}}</td>
+          <td>{{money.currency}}</td>
+          <td>{{money.comment}}</td>
+          <td>{{money.date | date:'HH:mm  dd.MM.y'}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+</div>
+<p *ngIf = "state === false" class="empty"></p>
+</div>

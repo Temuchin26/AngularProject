@@ -1,0 +1,51 @@
+<div class="cont">
+    <div class="cont__inputcont">
+      
+        <div class="form-group">
+            <input #newMoney type="text" class="cont__input" id="titleInput">
+            <span class="cont__dolar">$</span>
+          </div>
+
+      <div class="Coment">
+        
+          <div class="form-group">
+            <input #newComent type="text" placeholder="Добавить коментарий" class="Coment__input" id="imputComment"> 
+          </div>
+          <button class="Coment__add" (click)="addComentGain(newComent); newComent.value = ''">add</button>
+      </div>
+    </div>
+
+    <div class="task">
+        <div *ngFor="let coment of comentsGain; let i = index">
+          <div class="task__cont">
+            <div class="task__chose" (click)="chengeTask(coment, i)" [class.choseTask--active] = " select === i "></div>
+            <p class="task__text">{{coment}}</p>
+          </div>
+        </div>
+      </div>
+    
+    <button class="cont__btn" (click)="addGain(newMoney); newMoney.value = ''">Add</button>
+
+    <table class="table table-bordered">
+        <thead class="tableVal">
+          <tr>
+            <th class="tableVal">Сумма</th>
+            <th class="tableVal">Валюта</th>
+            <th class="tableVal">Коментарий</th>
+            <th class="tableVal">Время</th>
+            <th class="tableVal">Действие</th>
+          </tr>
+        </thead>
+        <tbody class="tableVal">
+            <tr *ngFor="let money of moneyGain; let i = index;" >
+              <td>{{money.sum}}</td>
+              <td>{{money.currency}}</td>
+              <td>{{money.comment}}</td>
+              <td>{{money.date | date:'HH:mm  dd.MM.y'}}</td>
+              <td>
+                <button class="cont__rembtn" (click)="removeGain(i)">remove</button>
+              </td>
+            </tr>
+          </tbody>
+      </table>
+</div>

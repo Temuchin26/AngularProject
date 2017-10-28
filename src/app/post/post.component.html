@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-md-9 col-md-offset-2">
+      <h1>View post</h1>
+      <h1 *ngIf="load">LOADING ...</h1>
+      <div *ngIf="!load" >
+        <div *ngFor="let post of posts" class="cont">
+        <h3 >
+          <h2>
+            {{post.title}}
+        </h2>
+        </h3>
+        <div class="cont__flex">
+        <p class="cont__body">{{post.body}}</p>
+      </div>
+      <a routerLink="/post/{{post.id}}">View comments</a>
+      </div>
+    </div>
+    </div>
+    </div>

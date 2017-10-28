@@ -1,0 +1,20 @@
+
+<div class="row">
+
+  <div class="col-md-10 col-md-offset-2">
+      <div class="Gcont">
+          
+              <div class="Top">
+                  <div class="Top__cont">
+                    <button (click)="action = 'Gain'" [class.Top--isChosen]="action === 'Gain'" class="Top__Gain sta">+</button>
+                    <button (click)="action = 'Spend'" [class.Top--isChosen]="action === 'Spend'" class="Top__Spend sta">-</button>
+                  </div>
+                </div>
+          
+                <gain *ngIf = " action === 'Gain'"></gain>
+                <spend *ngIf = " action === 'Spend'"></spend>
+          
+          <div class="Top"><conclusion></conclusion></div> 
+          </div>
+  </div>
+</div>
