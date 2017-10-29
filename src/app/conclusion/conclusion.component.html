@@ -7,7 +7,7 @@
 <h1 class="conclus__title">Итог : {{res}} $</h1>
 
 <h1 class="conclus__alert" *ngIf="abuse === 1"> Время искать деньги</h1>
-<h1 class="conclus__alert" *ngIf="res !== res"> Ошибка обработки данных в массиве <br> <span>Темучин ленивая жопа, не сделал валидацию значений</span></h1>
+<h1 class="conclus__alert" *ngIf="res !== res"> Ошибка обработки данных в массиве</h1>
 
 <button (click)="Active(state)" class="conclus__btn">Открыть все записи</button>
 <div *ngIf = "state === true">
