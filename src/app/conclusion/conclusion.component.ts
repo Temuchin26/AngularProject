@@ -28,7 +28,6 @@ export class ConclusionComponent implements OnInit {
     else{
       this.abuse = 0;
     }
-    console.log(this.res);
     
   }
 

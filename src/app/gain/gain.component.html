@@ -1,8 +1,10 @@
 <div class="cont">
+    <form  #myForm="ngForm" novalidate>
     <div class="cont__inputcont">
       
         <div class="form-group">
-            <input #newMoney type="text" class="cont__input" id="titleInput">
+            <input #newMoney type="text" class="cont__input" id="titleInput" required
+            [(ngModel)]="titleInput" name="titleInput" pattern="[0-9]{1,50}" ngModel >
             <span class="dolar">$</span>
           </div>
 
@@ -23,8 +25,11 @@
           </div>
         </div>
       </div>
-    
-    <button class="cont__btn" (click)="addGain(newMoney); newMoney.value = ''">Add</button>
+
+      <div class="form-group cont__btncont">
+         <button [disabled]="myForm.invalid" type="submit" class="cont__btn btn btn-default" (click)="addGain(newMoney)">Add</button>
+      </div>
+  </form>
 
     <table class="table table-bordered">
         <thead class="tableVal">
