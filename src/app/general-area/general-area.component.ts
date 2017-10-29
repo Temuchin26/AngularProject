@@ -18,6 +18,7 @@ export class GeneralAreaComponent implements OnInit {
   }
 
   action = 'Gain';
+
   
 
 }

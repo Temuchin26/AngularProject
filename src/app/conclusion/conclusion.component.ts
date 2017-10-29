@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+
 import { MONEY } from '../MONEYbase'
 import { CashflowService} from '../_service/cashflow.service';
-import { GeneralAreaComponent } from 'app/general-area/general-area.component';
+import { SPEND } from 'app/SpendMoney';
 
 @Component({
   selector: 'conclusion',
@@ -11,16 +12,14 @@ import { GeneralAreaComponent } from 'app/general-area/general-area.component';
 })
 export class ConclusionComponent implements OnInit {
 
-  constructor(private cs: CashflowService , private ga: GeneralAreaComponent) { }
+  constructor(private cs: CashflowService ) { }
 
   ngOnInit( ) {
-    
-    
 
     }
   ngDoCheck(){
-    this.calcsum = this.cs.calcSum();
-    this.calcspend = this.cs.calcSpend();
+    this.calcsum = this.cs.calcSum(MONEY);
+    this.calcspend = this.cs.calcSum(SPEND);
     this.res = this.calcsum - this.calcspend;
     if (this.res < 0 ) {
       this.abuse = 1;
@@ -43,7 +42,6 @@ export class ConclusionComponent implements OnInit {
   
   Active(state){
     this.state = !this.state;
-    
   }
 
 }

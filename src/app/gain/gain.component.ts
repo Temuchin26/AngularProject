@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DatePipe } from '@angular/common';
 
 import { CashflowService} from '../_service/cashflow.service';
@@ -12,6 +12,9 @@ import { Money } from 'app/money';
   providers: [CashflowService]
 })
 export class GainComponent implements OnInit {
+
+  @Input() activeForm;
+  @Output() changingForm = new EventEmitter();
 
   constructor( private cs : CashflowService ) { }
 
@@ -33,6 +36,14 @@ export class GainComponent implements OnInit {
     this.cs.removeGain(i);
   }
   
+  chengeForm(newForm){
+    
+    this.activeForm = newForm;
+    this.changingForm.emit(this.activeForm);
+    console.log(newForm);
+    
+  }
+
   addComentGain(com){
     this.comentsGain.push(com.value);
   }

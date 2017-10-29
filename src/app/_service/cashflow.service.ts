@@ -8,9 +8,6 @@ import { SPEND } from '../SpendMoney';
 export class CashflowService {
 
   constructor() { }
-  
-  g = [];
-  s = [];
 
   getGain(){
     return MONEY;
@@ -33,44 +30,24 @@ export class CashflowService {
     SPEND.splice(i, 1)
   }
 
-  calcSum(){
-      for (var i = 0, Items = MONEY; i < Items.length; i++) {
+  calcSum(arr){
+
+    var resarr = [];
+      for (var i = 0, Items = arr; i < Items.length; i++) {
         var x = Items[i];
-        this.g.push(x.sum);
+        resarr.push(x.sum);
         
       }
       
-      var gain = this.g;
+      var calcarr = resarr;
       var count:number = 0;
 
-      for (var i = 0; i < gain.length; i++) {
-        count = count + parseInt(gain[i]);  
+      for (var i = 0; i < calcarr.length; i++) {
+        count = count + parseInt(calcarr[i]);  
       }
-      var res:number = 0;
-      res = count
-      this.g = [];
-      return res;
+
+      return count;
       
   } 
-  calcSpend(){
-    for (var i = 0, Items = SPEND; i < Items.length; i++) {
-      var x = Items[i];
-      this.s.push(x.sum);
-      
-    }
-    
-    var spend = this.s;
-    var count:number = 0;
-
-    for (var i = 0; i < spend.length; i++) {
-      count = count + parseInt(spend[i]);  
-    }
-    var res:number = 0;
-    res = count
-    this.s = [];
-    
-    return res;
-
-} 
 
 }
